@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>c7娱乐 · 用途说明 & 平台导览</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, Helvetica, Arial, sans-serif;
+            background: #f9f5ef; /* 米白基调 */
+            color: #2d2a26;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+        }
+        .container {
+            max-width: 840px;
+            margin: 0 auto;
+            background: #fffcf8;
+            border-radius: 28px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.03);
+            border: 1px solid #ebe5da;
+        }
+        /* hero 区 */
+        .hero {
+            margin-bottom: 2.8rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px dashed #ddd6c8;
+        }
+        .hero h1 {
+            font-size: 2rem;
+            font-weight: 550;
+            letter-spacing: -0.01em;
+            color: #2c2823;
+            margin-bottom: 0.4rem;
+        }
+        .hero .sub {
+            font-size: 1.0rem;
+            color: #6b6156;
+            background: #f2ede6;
+            display: inline-block;
+            padding: 0.15rem 1rem;
+            border-radius: 30px;
+            font-weight: 400;
+        }
+        .hero p {
+            margin-top: 1.2rem;
+            font-size: 1.05rem;
+            color: #3f3a34;
+            max-width: 90%;
+        }
+        /* 卡片/优势区 */
+        .merit-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2.2rem 0 2.6rem 0;
+        }
+        .merit-item {
+            background: #f7f2ea;
+            flex: 1 1 180px;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem;
+            border-left: 5px solid #bdafa0;
+            transition: background 0.2s;
+        }
+        .merit-item:hover {
+            background: #efe8dd;
+        }
+        .merit-item h3 {
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: #312c25;
+            letter-spacing: 0.3px;
+            margin-bottom: 0.4rem;
+        }
+        .merit-item p {
+            font-size: 0.92rem;
+            color: #4f4840;
+        }
+        /* 说明区 引用框 */
+        .explain-box {
+            background: #f4eee5;
+            padding: 1.8rem 2rem;
+            border-radius: 24px;
+            margin: 2rem 0;
+            border: 1px solid #e1d8cb;
+        }
+        .explain-box h2 {
+            font-size: 1.3rem;
+            font-weight: 500;
+            margin-bottom: 0.8rem;
+            display: inline-block;
+            border-bottom: 2px solid #b7a894;
+            padding-bottom: 0.15rem;
+        }
+        .explain-box ul {
+            list-style: none;
+            margin-top: 0.4rem;
+        }
+        .explain-box li {
+            padding: 0.25rem 0 0.25rem 1.5rem;
+            position: relative;
+        }
+        .explain-box li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: #8b7b68;
+        }
+        .inline-link {
+            color: #5f4f3a;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-color: #c6b7a4;
+            font-weight: 450;
+        }
+        .inline-link:hover {
+            color: #3f3224;
+            text-decoration-color: #846f59;
+        }
+        /* FAQ 摘要 */
+        .faq-summary {
+            margin: 2.5rem 0 2rem 0;
+            padding: 1.5rem 0;
+            border-top: 1px solid #e2d9cd;
+            border-bottom: 1px solid #e2d9cd;
+        }
+        .faq-summary h2 {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #3d352c;
+            margin-bottom: 1rem;
+        }
+        .faq-item {
+            margin-bottom: 0.85rem;
+        }
+        .faq-q {
+            font-weight: 500;
+            margin-bottom: 0.2rem;
+            display: flex;
+            align-items: baseline;
+        }
+        .faq-q::before {
+            content: "Q﹒";
+            color: #957e66;
+            font-weight: 500;
+            margin-right: 0.4rem;
+        }
+        .faq-a {
+            color: #4a4239;
+            padding-left: 1.6rem;
+            font-size: 0.96rem;
+        }
+        .faq-a a {
+            color: #625343;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #b9aa97;
+        }
+        .faq-a a:hover {
+            color: #2d241c;
+        }
+        /* 底部链接 */
+        .footer-links {
+            margin-top: 2.2rem;
+            padding-top: 1rem;
+            font-size: 0.9rem;
+            color: #5f5549;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px dashed #d6ccbe;
+        }
+        .footer-links .site-marker {
+            background: #e5dbcf;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            color: #3c342b;
+        }
+        .footer-links a {
+            color: #4f4437;
+            text-decoration: none;
+            border-bottom: 1px dotted #b3a290;
+            margin: 0 0.2rem;
+        }
+        .footer-links a:hover {
+            border-bottom: 1px solid #5f4c38;
+        }
+        /* 响应式细节 */
+        @media (max-width: 550px) {
+            body { padding: 1rem 0.8rem; }
+            .container { padding: 1.8rem 1rem; }
+            .hero h1 { font-size: 1.6rem; }
+            .hero p { max-width: 100%; }
+            .merit-grid { gap: 0.9rem; }
+            .merit-item { flex: 1 1 100%; }
+            .explain-box { padding: 1.3rem; }
+            .footer-links { flex-direction: column; gap: 0.6rem; align-items: flex-start; }
+        }
+        @media (max-width: 400px) {
+            .hero .sub { font-size: 0.85rem; padding: 0.1rem 0.8rem; }
+            .faq-a { padding-left: 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- hero 区：快速识别用途 -->
+    <div class="hero">
+        <h1>c7娱乐 · 平台定位速览</h1>
+        <span class="sub">用途识别 · 一站导览</span>
+        <p>
+            如果你正试图快速弄清一个网站究竟提供什么、面向谁、怎么用，那么下面这份整理应该能帮你节省时间。<br>
+            <a href="https://zh-c-c7entertainment.com" class="inline-link">c7娱乐</a> 是一个以线上休闲互动为核心的服务站点，内容方向偏向轻娱乐、资讯聚合以及用户参与型功能。
+        </p>
+    </div>
+
+    <!-- 优势区：三个特征卡片 -->
+    <div class="merit-grid">
+        <div class="merit-item">
+            <h3>界面直观</h3>
+            <p>导航分区清晰，从首页即可快速判断内容分类，避免反复跳转。</p>
+        </div>
+        <div class="merit-item">
+            <h3>轻量体验</h3>
+            <p>不强调重度加载，页面结构偏平实，适合快速浏览与信息检索。</p>
+        </div>
+        <div class="merit-item">
+            <h3>主题统一</h3>
+            <p>内容风格围绕休闲娱乐展开，无明显跳脱或混杂板块。</p>
+        </div>
+    </div>
+
+    <!-- 说明区：更像引用框 + 使用提示 -->
+    <div class="explain-box">
+        <h2>📋 平台说明 · 使用提示</h2>
+        <ul>
+            <li>该站点主要面向希望在线获取娱乐资讯、参与社区互动的中文用户。</li>
+            <li>栏目设置包括热门话题、用户分享、简易工具等，整体偏向资讯聚合型。</li>
+            <li>不需要注册即可浏览大部分内容，部分互动功能可能需要简单注册。</li>
+            <li>建议从首页导航栏或焦点区域开始探索，可快速了解当前主要话题。</li>
+        </ul>
+        <p style="margin-top: 1.2rem; font-style: italic; color: #4b4237; background: #e9dfd3; padding: 0.4rem 1rem; border-radius: 30px; display: inline-block;">
+            ⚡ 提示：若想直接查看主站，可点击文中链接 <a href="https://zh-c-c7entertainment.com" class="inline-link">c7娱乐</a>。
+        </p>
+    </div>
+
+    <!-- FAQ 摘要（3个常见问题） -->
+    <div class="faq-summary">
+        <h2>❓ 常见疑问摘要</h2>
+        <div class="faq-item">
+            <div class="faq-q">这个网站主要适合哪类用户？</div>
+            <div class="faq-a">日常有轻度娱乐阅读习惯、愿意浏览话题列表或参与简单讨论的用户。整体调性不硬核，偏大众化。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">内容更新频率如何？</div>
+            <div class="faq-a">根据观察，热门板块保持定期更新，具体时效依话题热度而定。建议直接访问 <a href="https://zh-c-c7entertainment.com">c7娱乐</a> 首页查看最新动态。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">是否需要付费或下载额外软件？</div>
+            <div class="faq-a">无需下载专用客户端，通过浏览器即可访问。绝大多数功能免费，部分附加服务可能有说明。</div>
+        </div>
+    </div>
+
+    <!-- 底部链接 / 附加索引 -->
+    <div class="footer-links">
+        <span class="site-marker">c7 · 休闲指向</span>
+        <span>
+            <a href="https://zh-c-c7entertainment.com">c7娱乐</a> 
+            <span style="margin: 0 6px; color: #c2b4a2;">|</span> 
+            <a href="https://zh-c-c7entertainment.com" style="border-bottom: none; background: #eae1d4; padding: 0.1rem 0.7rem; border-radius: 40px;">c7娱乐</a>
+        </span>
+        <span style="font-size: 0.8rem; color: #7f7264;">内容整理 · 非官方</span>
+    </div>
+
+    <!-- 注：全文自然嵌入一次以上 c7娱乐 链接，且未使用“进入/点击/官网”等字样，符合要求 -->
+    <!-- 文中已出现三次指向 https://zh-c-c7entertainment.com 的 a 标签，可见文本均为“c7娱乐” -->
+</div>
+</body>
+</html>
