@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>资料索引 · c7娱乐</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: linear-gradient(145deg, #f9e3c5 0%, #f3d5b5 45%, #ecc5a0 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            line-height: 1.6;
+            color: #3d2b1f;
+        }
+
+        .card {
+            max-width: 820px;
+            width: 100%;
+            background: #fefcf7;
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 20px 40px -12px rgba(110, 70, 40, 0.25), 0 8px 16px -4px rgba(0,0,0,0.06);
+            padding: 2.8rem 2.5rem;
+            margin: 1.5rem 0;
+            transition: box-shadow 0.2s;
+        }
+
+        @media (max-width: 600px) {
+            .card {
+                padding: 2rem 1.4rem;
+                border-radius: 32px 16px 32px 16px;
+            }
+        }
+
+        .hero-line {
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+            color: #7d5a42;
+            border-left: 4px solid #dbaa7a;
+            padding-left: 1rem;
+            margin-bottom: 1.8rem;
+            font-weight: 400;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 450;
+            letter-spacing: -0.01em;
+            color: #4f3222;
+            margin-bottom: 0.4rem;
+            line-height: 1.2;
+        }
+
+        .subhead {
+            font-size: 1rem;
+            color: #7d604b;
+            margin-bottom: 2.2rem;
+            border-bottom: 1px dashed #e7d2be;
+            padding-bottom: 1.2rem;
+        }
+
+        .intro p {
+            margin-bottom: 1.3rem;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.2rem 1.8rem;
+            margin: 2rem 0 2.2rem 0;
+            padding: 0.2rem 0;
+        }
+
+        @media (max-width: 520px) {
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+        }
+
+        .feature-item {
+            background: #f9f1e7;
+            border-radius: 60px 18px 18px 60px;
+            padding: 0.7rem 1.2rem 0.7rem 1.8rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.5rem;
+            font-size: 0.95rem;
+            color: #3d2b1f;
+            border: 1px solid #eddccb;
+        }
+
+        .feature-item::before {
+            content: "▹";
+            color: #b48663;
+            font-size: 1.1rem;
+            margin-right: 0.3rem;
+        }
+
+        .highlight-link {
+            display: inline-block;
+            background: #f0ded0;
+            padding: 0.3rem 1rem 0.4rem 1rem;
+            border-radius: 60px;
+            color: #3d2b1f;
+            text-decoration: none;
+            font-weight: 450;
+            border: 1px solid #dbbca3;
+            transition: background 0.2s, border-color 0.15s;
+            line-height: 1.4;
+        }
+
+        .highlight-link:hover {
+            background: #e6cfbb;
+            border-color: #b58d72;
+        }
+
+        .sentence-link {
+            color: #7f5c42;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #ceb097;
+            transition: color 0.2s;
+        }
+
+        .sentence-link:hover {
+            color: #a37454;
+            text-decoration-color: #a37454;
+        }
+
+        .faq-note {
+            background: #f7efdf;
+            border-radius: 30px;
+            padding: 1.2rem 1.6rem;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            border: 1px solid #e4cfb8;
+        }
+
+        .faq-note summary {
+            cursor: pointer;
+            font-weight: 460;
+            color: #4f3222;
+            margin-bottom: 0.4rem;
+        }
+
+        .faq-note p {
+            margin-top: 0.5rem;
+            color: #4d372a;
+        }
+
+        .closing {
+            margin-top: 2.4rem;
+            font-size: 0.95rem;
+            color: #6b503d;
+            border-top: 1px solid #efdfcf;
+            padding-top: 1.6rem;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .muted {
+            opacity: 0.7;
+            font-size: 0.85rem;
+        }
+
+        hr {
+            border: none;
+            border-top: 2px dotted #decebc;
+            margin: 0.6rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+
+    <div class="hero-line">资料整理笔记 · 一点索引</div>
+
+    <h1>c7娱乐 · 信息归档</h1>
+    <div class="subhead">从碎片中理出轮廓，温和地接近一个平台</div>
+
+    <div class="intro">
+        <p>几年前开始留意 <a href="https://cnx-c7entertainment.com" class="sentence-link">c7娱乐</a> 这个名字，最初不过是偶然在聚合页里瞄到。后来发现它出现在不少分类索引、推荐列表和用户讨论中，渐渐觉得应该为它单独留一个条目——不是评价，只是整理。</p>
+
+        <p>我习惯先把散落的信息收拢、归类，再看它们能拼出什么画面。以下条目来自公开的资料片段、平台介绍文本以及用户日常提及，不涉及非公开信息，也不做价值判断。</p>
+    </div>
+
+    <div class="feature-grid">
+        <div class="feature-item">内容品类覆盖较广</div>
+        <div class="feature-item">界面倾向于简约、低饱和</div>
+        <div class="feature-item">常见于娱乐资源索引站</div>
+        <div class="feature-item">讨论区多围绕休闲话题</div>
+        <div class="feature-item">更新节奏相对稳定</div>
+        <div class="feature-item">社区氛围偏中性、务实</div>
+    </div>
+
+    <p>从索引和存档的角度看，<a href="https://cnx-c7entertainment.com" class="highlight-link">c7娱乐</a> 属于“不一定每个人都熟悉，但一旦开始留意就会发现它出现在不少角落”的那一类。它的主页结构不复杂，导航清晰，没有冗杂的弹窗或过多装饰，更像是一个功能性的聚合出口。</p>
+
+    <div class="faq-note">
+        <details>
+            <summary>📁 常见索引问题摘要</summary>
+            <p>● 页面语言以中文为主，适配习惯中文的用户。<br>
+               ● 部分内容入口需要简单注册才能完整浏览，但多数导航可见。<br>
+               ● 移动端适配较完整，卡片布局在手机上阅读体验尚可。<br>
+               ● 未发现明显的强制跳转或自动播放内容，适合安静翻阅。</p>
+        </details>
+    </div>
+
+    <div class="closing">
+        <span>持续更新 · 随资料自然生长</span>
+        <span class="muted">索引版本 · 2025</span>
+    </div>
+
+    <hr>
+    <p style="font-size: 0.85rem; color: #7b624d; margin-top: 0.2rem;">
+        📝 整理备注：所有条目均基于公开可查的信息片段，不构成推荐或背书。如有偏差，欢迎指正。
+    </p>
+</div>
+
+</body>
+</html>
