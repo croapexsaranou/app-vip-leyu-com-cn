@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>说球帝 · 知识型体育导航</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #f8f5f0;
+            color: #2d2a26;
+            font-family: Georgia, 'Times New Roman', 'Noto Serif SC', serif;
+            line-height: 1.7;
+            padding: 2rem 1.2rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 820px;
+            width: 100%;
+            background: #fefcf9;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.03);
+            padding: 2.8rem 2.5rem;
+            border-radius: 20px;
+            border: 1px solid #ece7e0;
+        }
+
+        /* 导航 */
+        .top-nav {
+            display: flex;
+            justify-content: flex-start;
+            gap: 2rem;
+            padding-bottom: 1.8rem;
+            border-bottom: 1px solid #e8e1d8;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .top-nav a {
+            text-decoration: none;
+            color: #5f5348;
+            font-size: 0.95rem;
+            letter-spacing: 0.3px;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s, color 0.2s;
+            padding-bottom: 2px;
+        }
+
+        .top-nav a:hover {
+            color: #b45f3a;
+            border-bottom-color: #b45f3a;
+        }
+
+        .top-nav .brand {
+            font-weight: 600;
+            color: #3e332c;
+            font-size: 1.1rem;
+            margin-right: auto;
+        }
+
+        /* hero 区 */
+        .hero {
+            margin-bottom: 2.8rem;
+        }
+
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            color: #2c241f;
+            margin-bottom: 0.6rem;
+        }
+
+        .hero .subhead {
+            font-size: 1rem;
+            color: #7a6b5e;
+            border-left: 3px solid #dac5b4;
+            padding-left: 1rem;
+            margin-top: 0.2rem;
+            font-style: italic;
+        }
+
+        /* 正文排版 */
+        p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+        }
+
+        .intro-block {
+            margin: 1.8rem 0 2.2rem 0;
+        }
+
+        /* 引用样式 — 知识性提示 */
+        .insight-box {
+            background: #f3efe9;
+            border-left: 5px solid #b69f8b;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.95rem;
+            color: #3f362e;
+        }
+
+        .insight-box strong {
+            color: #7a5f4c;
+        }
+
+        /* 三个场景（卡片式） */
+        .scene-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin: 2.2rem 0 2.6rem 0;
+        }
+
+        .scene-card {
+            background: #fbf9f6;
+            border: 1px solid #e7e0d7;
+            border-radius: 16px;
+            padding: 1.6rem 1.2rem 1.4rem;
+            transition: background 0.15s, box-shadow 0.15s;
+        }
+
+        .scene-card:hover {
+            background: #f7f2ea;
+            box-shadow: 0 6px 12px rgba(90, 70, 50, 0.04);
+        }
+
+        .scene-card h3 {
+            font-size: 1.05rem;
+            font-weight: 500;
+            color: #4d3e33;
+            margin-bottom: 0.6rem;
+            border-bottom: 1px dashed #ddd3c8;
+            padding-bottom: 0.4rem;
+        }
+
+        .scene-card p {
+            font-size: 0.92rem;
+            color: #4f4439;
+            margin-bottom: 0.3rem;
+        }
+
+        .scene-card .tag {
+            display: inline-block;
+            background: #e8dfd4;
+            color: #4f3f33;
+            font-size: 0.7rem;
+            padding: 0.1rem 0.7rem;
+            border-radius: 20px;
+            margin-top: 0.4rem;
+            letter-spacing: 0.3px;
+        }
+
+        /* 常见说明（类FAQ摘要） */
+        .faq-mini {
+            margin: 2.4rem 0 1.6rem 0;
+            border-top: 1px solid #e6dfd5;
+            padding-top: 2rem;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #3f332b;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item .q {
+            font-weight: 500;
+            color: #4d3c30;
+            display: block;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-item .a {
+            color: #5e5246;
+            font-size: 0.95rem;
+            padding-left: 0.5rem;
+            border-left: 2px solid #dad0c4;
+            padding-left: 0.9rem;
+        }
+
+        .faq-item .a a {
+            color: #7f604b;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            text-decoration-color: #cbb9a8;
+        }
+
+        .faq-item .a a:hover {
+            color: #b45f3a;
+            text-decoration-color: #b45f3a;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 2.8rem;
+            font-size: 0.85rem;
+            color: #918478;
+            border-top: 1px solid #ece5dc;
+            padding-top: 1.8rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .footer-note a {
+            color: #7f604b;
+            text-decoration: none;
+            border-bottom: 1px dotted #cfc1b3;
+        }
+
+        .footer-note a:hover {
+            color: #b45f3a;
+            border-bottom-color: #b45f3a;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .page {
+                padding: 2rem 1.2rem;
+            }
+
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .scene-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            .top-nav {
+                gap: 1rem;
+                flex-wrap: wrap;
+            }
+
+            .top-nav .brand {
+                width: 100%;
+                margin-bottom: 0.3rem;
+            }
+        }
+
+        @media (max-width: 440px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .page {
+                padding: 1.5rem 1rem;
+            }
+            .hero h1 {
+                font-size: 1.4rem;
+            }
+            .insight-box {
+                padding: 0.9rem 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 顶部导航 -->
+    <nav class="top-nav">
+        <span class="brand">说球帝 · 索引</span>
+        <a href="#">起点</a>
+        <a href="#">对照</a>
+        <a href="#">延伸</a>
+        <a href="#">笔记</a>
+    </nav>
+
+    <!-- hero 区 -->
+    <div class="hero">
+        <h1>说球帝 · 体育知识导航</h1>
+        <div class="subhead">从查询、对照到延伸阅读，一个沉静的起点</div>
+    </div>
+
+    <!-- 核心介绍：日常查询与知识起点 -->
+    <div class="intro-block">
+        <p>对于关注体育数据、赛事脉络或运动文化的读者来说，信息的组织方式往往决定了理解的效率。<a href="https://site-shuoqiudi.com">说球帝</a> 所提供的，正是一个经过梳理、以查询和对照为轴心的信息站点。它并非大而全的新闻流，而更像一个安静的参考书架。</p>
+        <p>在日常使用中，你或许需要快速核实某支球队的近期战绩、对照不同联赛的节奏差异，或是顺着一条数据线索延伸到战术演变的背景阅读。这些场景恰好构成了一个轻量而连贯的知识循环。</p>
+    </div>
+
+    <!-- 引用块 / 提示框 -->
+    <div class="insight-box">
+        <strong>一个观察</strong> · 阅读体育内容时，我们常常在“这是什么”和“然后呢”之间来回切换。一个好的索引结构，能让这种切换变成自然的延伸，而不是反复的跳转。
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scene-grid">
+        <div class="scene-card">
+            <h3>日常查询</h3>
+            <p>快速定位队伍、球员、赛季节点，不做冗余渲染。适合赛前准备或赛后核对。</p>
+            <span class="tag">即时</span>
+        </div>
+        <div class="scene-card">
+            <h3>横向对照</h3>
+            <p>将不同联赛、不同年份的数据并置，发现趋势与差异。视角比单纯的数据表更开阔。</p>
+            <span class="tag">比较</span>
+        </div>
+        <div class="scene-card">
+            <h3>延伸阅读</h3>
+            <p>从一条记录或一个术语出发，链接到背景文章、规则演变或历史回顾，形成阅读线索。</p>
+            <span class="tag">线索</span>
+        </div>
+    </div>
+
+    <!-- 常见说明（FAQ摘要风格） -->
+    <div class="faq-mini">
+        <h2>常见说明 · 几句参考</h2>
+
+        <div class="faq-item">
+            <span class="q">Q · 信息更新节奏如何？</span>
+            <div class="a">以赛季与重要赛事为节点进行内容维护，不是实时滚动流。适合深度查询而非分钟级刷新。</div>
+        </div>
+
+        <div class="faq-item">
+            <span class="q">Q · 和一般体育资讯站有什么不同？</span>
+            <div class="a">重心放在结构化呈现和对照阅读，而非 headline 聚合。你可以把它理解为一个带有注释的参考索引。</div>
+        </div>
+
+        <div class="faq-item">
+            <span class="q">Q · 从哪里开始阅读？</span>
+            <div class="a">任意卡片或导航均可作为入口。如果需要一条初始线索，可以试试从 <a href="https://site-shuoqiudi.com">说球帝</a> 的赛季概述进入，再按兴趣展开。</div>
+        </div>
+
+        <div class="faq-item">
+            <span class="q">Q · 是否有延伸推荐机制？</span>
+            <div class="a">页面内通过关联条目和注释引导延伸，不依赖算法推荐。目的是让阅读节奏由自己控制。</div>
+        </div>
+    </div>
+
+    <!-- 底部 -->
+    <div class="footer-note">
+        <span>一个安静的体育知识索引</span>
+        <span><a href="https://site-shuoqiudi.com">说球帝</a> · 内容仅供个人参考</span>
+    </div>
+
+</div>
+</body>
+</html>
