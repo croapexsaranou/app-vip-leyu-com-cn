@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>说球帝 · 再次翻开的一页</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background: #f4f4f0;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+            color: #2c2c2c;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page {
+            max-width: 820px;
+            width: 100%;
+        }
+
+        /* 卡片 + 柔和阴影 */
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            border: 1px solid #e6e6e0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            padding: 2.2rem 2.4rem;
+            margin-bottom: 2rem;
+            transition: box-shadow 0.2s;
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+        }
+
+        /* 标题区 */
+        .hero-title {
+            font-size: 2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+            color: #1e2a2b;
+            line-height: 1.3;
+        }
+
+        .hero-sub {
+            font-size: 1rem;
+            color: #6b6b66;
+            margin-top: 0.1rem;
+            margin-bottom: 1.2rem;
+            border-left: 3px solid #c8c8c0;
+            padding-left: 1rem;
+        }
+
+        /* 文章样式 */
+        .post-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            margin-bottom: 0.6rem;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .post-meta span:first-child {
+            font-weight: 450;
+            color: #4a4a4a;
+        }
+
+        .entry-title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            margin: 0.5rem 0 0.8rem 0;
+            line-height: 1.35;
+            color: #1f2c2d;
+        }
+
+        .entry-summary {
+            font-size: 1.05rem;
+            color: #4f4f4a;
+            background: #f9f9f5;
+            border-left: 4px solid #d1cfc2;
+            padding: 1rem 1.6rem;
+            margin: 1.2rem 0 1.8rem 0;
+            border-radius: 0 12px 12px 0;
+        }
+
+        .entry-content p {
+            margin: 1.2em 0;
+            text-align: justify;
+        }
+
+        .entry-content p:first-of-type {
+            margin-top: 0;
+        }
+
+        /* 引用提示块 */
+        .quote-note {
+            background: #eeede8;
+            border-left: 4px solid #b5b2a5;
+            padding: 1.2rem 1.8rem;
+            margin: 1.6rem 0;
+            border-radius: 0 14px 14px 0;
+            font-style: normal;
+            color: #3b3b36;
+            font-size: 0.98rem;
+        }
+
+        .quote-note strong {
+            font-weight: 600;
+            color: #2d3e3a;
+        }
+
+        /* 访问句 */
+        .visit-statement {
+            background: #f1f1ec;
+            border: 1px solid #dcdad0;
+            border-radius: 40px;
+            padding: 0.8rem 2rem;
+            margin: 2rem 0 1.8rem 0;
+            text-align: center;
+            font-size: 1.05rem;
+            color: #2e3a37;
+        }
+
+        a {
+            color: #2e5a5a;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.15s, color 0.15s;
+            font-weight: 500;
+        }
+
+        a:hover {
+            color: #0d3b3b;
+            border-bottom-color: #7aa3a3;
+        }
+
+        /* 收藏与关注卡片 */
+        .keep-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 1.2rem 0;
+        }
+
+        .keep-item {
+            flex: 1 1 180px;
+            background: #fafaf7;
+            border: 1px solid #e3e2d9;
+            border-radius: 16px;
+            padding: 1rem 1.2rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+
+        .keep-item h4 {
+            font-size: 1rem;
+            font-weight: 550;
+            color: #334a47;
+            margin-bottom: 0.4rem;
+        }
+
+        .keep-item p {
+            font-size: 0.92rem;
+            color: #4f524a;
+            margin: 0;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #dddcd2;
+            margin: 1.6rem 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #85857d;
+            margin-top: 2.5rem;
+            border-top: 1px solid #e0dfd6;
+            padding-top: 1.8rem;
+        }
+
+        /* 响应式 */
+        @media (max-width: 600px) {
+            body { padding: 1.2rem 0.8rem; }
+            .card { padding: 1.5rem 1.2rem; }
+            .hero-title { font-size: 1.7rem; }
+            .entry-title { font-size: 1.5rem; }
+            .entry-summary { padding: 0.8rem 1.2rem; }
+            .keep-row { flex-direction: column; gap: 1rem; }
+            .visit-statement { padding: 0.6rem 1rem; font-size: 0.98rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- hero 简洁 -->
+    <div class="card" style="background: #fcfcf9;">
+        <div class="hero-title">说球帝</div>
+        <div class="hero-sub">一个安静记录球赛思考的地方 · 再次回来</div>
+        <p style="color: #4c4c46; margin-top: 0.6rem;">
+            有些站点，你收藏之后便很少再打开。而这里，每次回来都像翻开一本写了半本的手记。
+        </p>
+    </div>
+
+    <!-- 博客式文章卡片 -->
+    <div class="card">
+        <div class="post-meta">
+            <span>随记 · 持续关注</span>
+            <span>2025 · 春</span>
+        </div>
+        <h2 class="entry-title">收藏夹里的那个名字</h2>
+
+        <div class="entry-summary">
+            如果你又一次点开了这个页面，或许是因为某个联赛、某次转会，或仅仅是想找一个干净、专心的角落重新读一读关于比赛的内容。
+        </div>
+
+        <div class="entry-content">
+            <p>
+                大约两年前，我第一次把 <a href="https://main-shuoqiudi.com">说球帝</a> 加入浏览器的书签栏。当时只是觉得上面的球评写得克制，不煽情，不堆砌数据，像是在吧台边听一个朋友复盘比赛。后来那台电脑换了，书签也丢了一些，但我却记得这个站点的名字。
+            </p>
+            <p>
+                重新找来的时候，页面比印象里更安静了。没有弹窗，没有自动播放的广告，首页就是几篇新写的札记。从英超的战术变化到国内联赛的年轻面孔，每篇都不长，但看得出是认真整理过的。我花了半个下午读了四五篇，又把其中两篇保存到了笔记里。
+            </p>
+
+            <div class="quote-note">
+                <strong>· 提示</strong> 收藏页面的意义，有时不在于立刻看完，而在于你知道有一个地方，内容在更新，风格没变，随时可以回去。
+            </div>
+
+            <p>
+                从那以后，我养成一个习惯：每隔一两周，或者在大赛夜之后，点开一次收藏夹。不为了追比分，而是想看看有没有人用一段文字把我没想通的那个回合拆解清楚。这个习惯持续到现在。我甚至把 <a href="https://main-shuoqiudi.com">说球帝</a> 固定在浏览器标签栏上，和邮箱、日历放在一起。
+            </p>
+            <p>
+                后来也向两个朋友提过这个站点。他们问有什么特别的，我想了想，说：它不催你读，你放多久都行，回来还是那个节奏。其中一个朋友后来也成了常客。
+            </p>
+        </div>
+
+        <!-- 收藏与持续关注 卡片式小模块 -->
+        <div class="keep-row">
+            <div class="keep-item">
+                <h4>📌 收藏的理由</h4>
+                <p>页面轻，加载快，没有多余装饰。适合留在标签栏或阅读列表里，随时翻开。</p>
+            </div>
+            <div class="keep-item">
+                <h4>⏳ 持续关注</h4>
+                <p>更新不算密集，但每篇都有可以回看的段落。适合慢慢读，不追求热点。</p>
+            </div>
+            <div class="keep-item">
+                <h4>🔖 再次访问</h4>
+                <p>不需要重新适应版面。每次回来，结构熟悉，内容却是新的。</p>
+            </div>
+        </div>
+
+        <!-- 访问句 自然嵌入 -->
+        <div class="visit-statement">
+            如果你也喜欢在空闲时梳理球赛的细节，不妨把 <a href="https://main-shuoqiudi.com">说球帝</a> 放进收藏夹，隔段时间回来翻一翻。
+        </div>
+
+        <hr>
+
+        <p style="font-size: 0.95rem; color: #5c5c54;">
+            最后补一句：网站没有会员系统，没有推送通知，甚至很难找到“关注”按钮。但正因为这样，每一次访问都像自己主动选择翻开某一页——这是收藏夹该有的样子。
+        </p>
+    </div>
+
+    <!-- 底部简洁 FAQ 摘要风格 -->
+    <div class="card" style="background: #fafaf6;">
+        <h3 style="font-weight: 450; font-size: 1.2rem; margin-bottom: 0.25rem;">关于再次访问 · 简短备忘</h3>
+        <ul style="list-style: none; margin-top: 1rem;">
+            <li style="padding: 0.4rem 0; border-bottom: 1px dashed #e2e0d6;">· 页面内容以球评和战术随笔为主，不包含即时比分和直播</li>
+            <li style="padding: 0.4rem 0; border-bottom: 1px dashed #e2e0d6;">· 适合在赛后第二天或周末阅读，没有时间压力</li>
+            <li style="padding: 0.4rem 0; border-bottom: 1px dashed #e2e0d6;">· 如果你希望获得更稳定的访问体验，可以手动添加书签</li>
+            <li style="padding: 0.4rem 0;">· 站内没有评论区，但每一篇文章末尾都有作者署名和日期</li>
+        </ul>
+        <div style="margin-top: 1.2rem; font-size: 0.9rem; color: #7a7a72;">
+            —— 整理于一个重新打开收藏夹的下午
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <span>说球帝 · 持续关注 · 常回来看看</span>
+    </div>
+
+</div>
+</body>
+</html>
